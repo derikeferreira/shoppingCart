@@ -25,6 +25,7 @@ export default function Cart() {
             .then(updated => console.log('Cars removed: ' + updated))
             .catch(err => console.log(err))
         setcondicaoView(true)
+        setprecototal(0)
     }
 
     const adicionarProdutos = () => {
@@ -160,7 +161,7 @@ export default function Cart() {
 
             <View style={styles.finalizarcompra}>
                 <View style={{ color: '#0000ff', flex: 1,  flexDirection: 'row', flexWrap: 'wrap'}}>
-                    <Text style={[styles.fontsize, { color: '#FFF',flexWrap: 'wrap' }]}>R$ {(Number(precototal) + Number(frete)).toFixed(2).toString()}</Text>
+                    <Text style={[styles.fontsize, { color: '#FFF',flexWrap: 'wrap' }]}>R$ { precototal === 0 ? 0 : (Number(precototal) + Number(frete)).toFixed(2).toString()}</Text>
                 </View>
 
 
